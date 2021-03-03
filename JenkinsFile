@@ -8,11 +8,6 @@ pipeline {
             }
         }
         stage('build project') {
-            steps {
-               sh 'mvn clean package'
-            }
-        }
-        stage('build project') {
                     steps {
                        sh 'mvn -f ${project_name} clean package dockerfile:build'
                     }
