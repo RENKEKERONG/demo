@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('pull code') {
+            steps {
+               checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']], extensions: [], userRemoteConfigs: [[credentialsId: '24702982-77a3-45ac-be7a-ba5e5e6d0959', url: 'git@github.com:RENKEKERONG/demo.git']]])
+            }
+        }
+        stage('build project') {
+            steps {
+               sh 'mvn clean package'
+            }
+        }
+        stage('build project') {
+                    steps {
+                       sh 'mvn -f ${project_name} clean package dockerfile:build'
+                    }
+                }
+        stage('build project') {
+                          steps {
+                             sh 'mvn -f ${project_name} clean package dockerfile:build'
+                          }
+                      }
+
+    }
+          post {
+              success {
+                 emailext(
+                 					subject: '构建通知：${PROJECT_NAME} - Build # ${BUILD_NUMBER} - ${BUILD_STATUS}!',
+                 					body: '${FILE,path="email.html"}',
+                 					to: '279126507@qq.com'
+                 				)
+
+              }
+              failure {
+                  emailext (
+                      subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                      body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+                          <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+                      to: "279126507@qq.com",
+                      from: "279126507@qq.com"
+                  )
+              }
+          }
+}
