@@ -9,10 +9,14 @@ pipeline {
         }
         stage('build project') {
                     steps {
-                       sh 'mvn clean package docker build'
+                       sh 'mvn clean package '
                     }
                 }
-
+   stage('build image') {
+                    steps {
+                       sh 'docker build'
+                    }
+                }
 
     }
           post {
