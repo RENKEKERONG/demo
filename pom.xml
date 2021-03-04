@@ -40,49 +40,49 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <plugin>
+<!--            <plugin>-->
 
-                <groupId>com.spotify</groupId>
+<!--                <groupId>com.spotify</groupId>-->
 
-                <artifactId>docker-maven-plugin</artifactId>
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
 
-                <version>0.4.14</version>
+<!--                <version>0.4.14</version>-->
 
-                <configuration>
+<!--                <configuration>-->
 
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+<!--                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>-->
 
-                    <!--指定docker镜像的版本号-->
+<!--                    &lt;!&ndash;指定docker镜像的版本号&ndash;&gt;-->
 
-                    <imageTags>
+<!--                    <imageTags>-->
 
-                        <!--使用maven项目的版本号-->
+<!--                        &lt;!&ndash;使用maven项目的版本号&ndash;&gt;-->
 
-                        <imageTag>${project.version}</imageTag>
+<!--                        <imageTag>${project.version}</imageTag>-->
 
-                        <imageTag>latest</imageTag>
+<!--                        <imageTag>latest</imageTag>-->
 
-                    </imageTags>
+<!--                    </imageTags>-->
 
-                    <dockerDirectory>src/main/docker</dockerDirectory>
+<!--                    <dockerDirectory>src/main/docker</dockerDirectory>-->
 
-                    <resources>
+<!--                    <resources>-->
 
-                        <resource>
+<!--                        <resource>-->
 
-                            <targetPath>/</targetPath>
+<!--                            <targetPath>/</targetPath>-->
 
-                            <directory>${project.build.directory}</directory>
+<!--                            <directory>${project.build.directory}</directory>-->
 
-                            <include>${project.build.finalName}.jar</include>
+<!--                            <include>${project.build.finalName}.jar</include>-->
 
-                        </resource>
+<!--                        </resource>-->
 
-                    </resources>
+<!--                    </resources>-->
 
-                </configuration>
+<!--                </configuration>-->
 
-            </plugin>
+<!--            </plugin>-->
 
 
 
