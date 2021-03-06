@@ -34,70 +34,12 @@
 
     <!--    可以打成直接运行的Jar包 可以引入依赖包-->
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-<!--            <plugin>-->
-
-<!--                <groupId>com.spotify</groupId>-->
-
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-
-<!--                <version>0.4.14</version>-->
-
-<!--                <configuration>-->
-
-<!--                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>-->
-
-<!--                    &lt;!&ndash;指定docker镜像的版本号&ndash;&gt;-->
-
-<!--                    <imageTags>-->
-
-<!--                        &lt;!&ndash;使用maven项目的版本号&ndash;&gt;-->
-
-<!--                        <imageTag>${project.version}</imageTag>-->
-
-<!--                        <imageTag>latest</imageTag>-->
-
-<!--                    </imageTags>-->
-
-<!--                    <dockerDirectory>src/main/docker</dockerDirectory>-->
-
-<!--                    <resources>-->
-
-<!--                        <resource>-->
-
-<!--                            <targetPath>/</targetPath>-->
-
-<!--                            <directory>${project.build.directory}</directory>-->
-
-<!--                            <include>${project.build.finalName}.jar</include>-->
-
-<!--                        </resource>-->
-
-<!--                    </resources>-->
-
-<!--                </configuration>-->
-
-<!--            </plugin>-->
-
-
-
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
-<!--                <version>1.3.6</version>-->
-<!--                <configuration>-->
-<!--                    <repository>${project.artifactId}</repository>-->
-<!--                    &lt;!&ndash; <tag>${project.version}</tag> 不指定tag默认为latest &ndash;&gt;-->
-<!--                    <buildArgs>-->
-<!--                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>-->
-<!--                    </buildArgs>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
         </plugins>
     </build>
 
