@@ -1,5 +1,5 @@
 FROM java:8
-ADD *.jar /app.jar
+ADD /target/*.jar /app.jar
 CMD ["--server.port=8083"]
 EXPOSE 8082
 ENTRYPOINT ["java", "-jar", "/app.jar"]
